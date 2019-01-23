@@ -10,3 +10,4 @@
 
 [为什么数组从0开始编号](https://github.com/Loner1024/algorithm/blob/master/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%95%B0%E7%BB%84%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%BC%96%E5%8F%B7.md)
 
+[链表](https://github.com/Loner1024/algorithm/blob/master/%E9%93%BE%E8%A1%A8.md)
