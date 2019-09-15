@@ -1,46 +1,59 @@
 /*
 题目描述
-输入一个数n，然后输入n个数值各不相同，再输入一个值x，输出这个值在这个数组中的下标（从0开始，若不在数组中则输出-1）。
+有两个日期，求两个日期之间的天数，如果两个日期是连续的我们规定他们之间的天数为两天。
 
 输入
-测试数据有多组，输入n(1<=n<=200)，接着输入n个数，然后输入x。
+有多组数据，每组数据有两行，分别表示两个日期，形式为YYYYMMDD
 
 输出
-对于每组输入,请输出结果。
+每组数据输出一行，即日期差值
 
 样例输入
-4
-1 2 3 4
-3
+20130101
+20130105
 样例输出
-2
+5
 */
 
 #include <cstdio>
+int month[13][2] = {
+	{0,0},{31,31},{28,29},{31,31},{30,30},{31,31},{30,30},{31,31},{31,31},{30,30},{31,31},{30,30},{31,31}
+};
+
+bool isLeap(int year){
+    return (year%4==0 && year%100!=0) || (year%400==0);
+}
 
 int main(){
-    int a[201];
-    int n, x;
-    while (scanf("%d", &n) != EOF)
+    int begin, year1, month1, day1;
+    int end, year2, month2, day2;
+    while (scanf("%d%d", &begin, &end) != EOF)
     {
-        for (int i = 0; i < n; i++)
+        if (begin>end)
         {
-            scanf("%d", &a[i]);
-        } 
-        scanf("%d", &x);
-        int k;
-        for (k = 0; k < n; k++)
-        {
-            if (a[k] == x)
-            {
-                printf("%d\n", k);
-                break;
-            }
+            int temp=begin;
+            begin = end;
+            end = temp;
         }
-        if (k == n)
+        year1=begin/10000, month1 = begin%10000/100, day1 = begin%100;
+        year2=end/10000, month2 = end%10000/100, day2 = end%100;
+        int ans=1;
+    while (year1<year2 || month1<month2 || day1<day2)
+    {
+        day1++;
+        if (day1==month[month1][isLeap(year1)]+1)
         {
-            printf("-1\n");
-        } 
+            month1++;
+            day1 = 1;
+        }
+        if (month1==13)
+        {
+            year1++;
+            month1 = 1;
+        }
+        ans++;
+    }
+    printf("%d\n", ans);
     }
     return 0;
 }
