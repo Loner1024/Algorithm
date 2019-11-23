@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "cstring": "cpp",
-        "cstdio": "cpp"
+        "cstdio": "cpp",
+        "iostream": "cpp"
     }
 }

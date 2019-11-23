@@ -16,12 +16,13 @@ Come I Here World Hello
 #include <stdio.h>
 #include <string.h>
 
-int main(){
+int main()
+{
     char str[90];
     gets(str);
     char ans[90][90];
     int len = strlen(str);
-    int r=0,h=0;
+    int r = 0, h = 0;
     for (int i = 0; i < len; i++)
     {
         if (str[i] != ' ')
@@ -37,8 +38,9 @@ int main(){
     }
     for (int i = r; i >= 0; i--)
     {
-        printf("%s",ans[i]);
-        if(i>0) printf(" ");
-    } 
+        printf("%s", ans[i]);
+        if (i > 0)
+            printf(" ");
+    }
     return 0;
 }
