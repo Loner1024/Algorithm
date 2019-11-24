@@ -35,12 +35,12 @@ void SplitNum(int a,int *p){
  
 int main(){
     int a,b;
-    int mult1[12]={0},mult2[12]={0};
-    int ans=0;
-    int *p1=mult1;
-    int *p2=mult2;
     while (scanf("%d %d", &a,&b) != EOF)
     {
+        int mult1[12]={0},mult2[12]={0};
+        int ans=0;
+        int *p1=mult1;
+        int *p2=mult2;
         SplitNum(a,p1);
         SplitNum(b,p2);
         for (int i = 0; i < sizeof(mult1)/sizeof(int); i++)
@@ -50,7 +50,7 @@ int main(){
                 ans += mult1[i]*mult2[k];
             }
         }
-        printf("%d",ans);
+        printf("%d\n",ans);
     }
 }
 
