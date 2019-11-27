@@ -1,13 +1,14 @@
 #include <cstdio>
 #include <cstring>
-// 牛客能过，codeup过不了
 
+// 牛客能过，codeup过不了
+// 把 stuinfo 空间搞大就好了
 
 struct stuinfo
 {
-    char id[10];
-    char name[20];
-    char gender[10];
+    char id[100];
+    char name[200];
+    char gender[20];
     int age;
 } stu[1001];
 
@@ -16,6 +17,7 @@ int main()
     int n, m;
     while (scanf("%d", &n) != EOF)
     {
+        if(n == 0)break;
         for (int i = 0; i < n; i++)
         {
             scanf("%s %s %s %d", stu[i].id, stu[i].name, stu[i].gender, &stu[i].age);
