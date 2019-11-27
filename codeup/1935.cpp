@@ -1,47 +1,43 @@
 #include <cstdio>
+#include <cstring>
+// 牛客能过，codeup过不了
 
-struct stuInfo
+
+struct stuinfo
 {
     char id[10];
-    char name[100];
+    char name[20];
     char gender[10];
     int age;
 } stu[1001];
 
 int main()
 {
-    int n;
-    scanf("%d", &n);
-    for (int i = 0; i < n; i++)
+    int n, m;
+    while (scanf("%d", &n) != EOF)
     {
-        scanf("%s %s %s %d", stu[i].id, stu[i].name, stu[i].gender, &stu[3].age);
-    }
-    int m;
-    scanf("%d",&m);
-    //printf("m:%d\n",m);
-    // for (int i = 0; i < m; i++)
-    // {
-    //     printf("i:%d\n",i);
-    //     char temp[30];
-    //     scanf("%s",temp);
-    //     printf("temp:%s\n",temp);
-
-    // }
-    for (int k=0; k < m; k++)
-    {
-        char temp[30];
-        scanf("%s",temp);
-        for (int j = 0; j < n; j++)
+        for (int i = 0; i < n; i++)
         {
-            printf("%d:%c\n",j,*stu[j].id);
-            if (*temp == *stu[j].id)
+            scanf("%s %s %s %d", stu[i].id, stu[i].name, stu[i].gender, &stu[i].age);
+        }
+        scanf("%d", &m);
+        for (int i = 0; i < m; i++)
+        {
+            char temp[10];
+            scanf("%s", temp);
+            for (int k = 0; k <= n; k++)
             {
-                printf("%s\n",stu[j].id);
-                break;
-            }
-            else
-            {
-                printf("%s","No Answer!");
+                // 使用 strcmp，若字符串相同，则返回 0
+                // 无法 == 直接比较
+                if (strcmp(stu[k].id, temp) == 0)
+                {
+                    printf("%s %s %s %d\n", stu[k].id, stu[k].name, stu[k].gender, stu[k].age);
+                    break;
+                }
+                else if (k == n)
+                {
+                    printf("No Answer!\n");
+                }
             }
         }
     }
